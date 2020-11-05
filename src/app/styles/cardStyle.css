@@ -1,0 +1,18 @@
+a {
+  transition: 0.2s;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+a:active,
+a:hover {
+  transition: 0.2s;
+  color: white;
+}
+.cardContainer {
+  transition: 0.2s;
+}
+
+.cardContainer:hover {
+  transition: 0.2s;
+  transform: scale(0.96) !important;
+}
