@@ -1,13 +1,20 @@
 import logo from "./logo.svg";
 import "./App.css";
 import { Container } from "react-bootstrap";
-import { HashRouter, Route, Switch, Redirect } from "react-router-dom";
+import {
+  BrowserRouter,
+  HashRouter,
+  Route,
+  Switch,
+  Redirect,
+} from "react-router-dom";
 import EstudiantesPage from "./app/pages/EstudiantesPage";
 import ParticlesScreen from "./app/components/ParticlesScreen";
 import LandingPage from "./app/pages/LandingPage";
+import NavigationBar from "./app/components/NavigationBar";
 function App() {
   return (
-    <HashRouter>
+    <BrowserRouter>
       <Container
         fluid={true}
         style={{
@@ -17,6 +24,7 @@ function App() {
           margin: 0,
         }}
       >
+        <NavigationBar />
         <Switch>
           <Route exact path="/">
             <Redirect to="/participacion" />
@@ -38,7 +46,7 @@ function App() {
           height="100%"
         />
       </Container>
-    </HashRouter>
+    </BrowserRouter>
   );
 }
 
