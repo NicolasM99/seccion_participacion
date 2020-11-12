@@ -1,9 +1,10 @@
 import logo from "./logo.svg";
 import "./App.css";
 import { Container } from "react-bootstrap";
-import { HashRouter, Route, Switch } from "react-router-dom";
+import { HashRouter, Route, Switch, Redirect } from "react-router-dom";
 import EstudiantesPage from "./app/pages/EstudiantesPage";
 import ParticlesScreen from "./app/components/ParticlesScreen";
+import LandingPage from "./app/pages/LandingPage";
 function App() {
   return (
     <HashRouter>
@@ -16,6 +17,17 @@ function App() {
           margin: 0,
         }}
       >
+        <Switch>
+          <Route exact path="/">
+            <Redirect to="/participacion" />
+          </Route>
+          <Route exact path="/participacion" component={LandingPage} />
+          <Route
+            exact
+            path="/participacion_estudiantes"
+            component={EstudiantesPage}
+          />
+        </Switch>
         <ParticlesScreen
           style={{
             position: "absolute",
@@ -25,9 +37,6 @@ function App() {
           width="100%"
           height="100%"
         />
-        <Switch>
-          <Route exact path="/" component={EstudiantesPage} />
-        </Switch>
       </Container>
     </HashRouter>
   );
