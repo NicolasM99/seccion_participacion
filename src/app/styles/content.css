@@ -2,3 +2,25 @@
   font-family: "Raleway", sans-serif;
   font-size: 20pt;
 }
+
+#landingPageTitle {
+  color: #001033;
+  background-color: #08ff7d;
+}
+
+#studentsTitle {
+  color: #ffbf83;
+  background-color: #241e3f;
+}
+
+#graduatedTitle {
+  color: #cbb4ff;
+
+  background-color: #241e3f;
+}
+
+#teachersTitle {
+  color: #83ffff;
+
+  background-color: #241e3f;
+}

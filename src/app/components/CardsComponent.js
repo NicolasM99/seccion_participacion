@@ -1,174 +1,136 @@
-import React from "react";
-import {
-  Card,
-  CardDeck,
-  CardColumns,
-  CardGroup,
-  Row,
-  Col,
-} from "react-bootstrap";
+import React, { useState } from "react";
+import { Card, Row, Col, Modal } from "react-bootstrap";
 import "../styles/cardStyle.css";
 import "../styles/youtubeContainer.css";
 import YouTube from "react-youtube";
+import Iframe from "react-iframe";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faExternalLinkAlt } from "@fortawesome/free-solid-svg-icons";
 
 const thumbnailOpt = {};
 
-const cardsArray = [
-  {
-    youtube: true,
-    videoId: "-zKE04TVxGk",
-    opts: thumbnailOpt,
-    onReady: (e) => e.target.pauseVideo(),
-  },
-  {
-    name: "PIV-IT",
-    author: "autor",
-    link: "https://simmer.io/@bubbybumble/piv-it",
-    image:
-      "https://process.filestackapi.com/AnP4G3pixRCyMaUo5jr8bz/output=format:webp/resize=height:220/https://simmercdn.com/unity/2f5D0OoCwfSmxd0UWqRWb31mpj92/content/ca123aa3-17a8-e2fa-a4fb-6a7c4754d2ea/screens/2.png",
-  },
-  {
-    name: "Cleos Haunted House 1st draft",
-    author: "Will Lewis",
-    link: "https://poly.google.com/view/2rujmCTRgjV",
-    image:
-      "https://lh3.googleusercontent.com/HcOr2RfBwWWasVwyZuco41j9YZ7RcnUYh2jbF4IaU7a82hNZMigpDCtyy4MxujoR=w576-h432-n-rw",
-  },
-  {
-    name: "PIV-IT",
-    author: "autor",
-    link: "https://simmer.io/@bubbybumble/piv-it",
-    image:
-      "https://process.filestackapi.com/AnP4G3pixRCyMaUo5jr8bz/output=format:webp/resize=height:220/https://simmercdn.com/unity/2f5D0OoCwfSmxd0UWqRWb31mpj92/content/ca123aa3-17a8-e2fa-a4fb-6a7c4754d2ea/screens/2.png",
-  },
-  {
-    name: "Cleos Haunted House 1st draft",
-    author: "Will Lewis",
-    link: "https://poly.google.com/view/2rujmCTRgjV",
-    image:
-      "https://lh3.googleusercontent.com/HcOr2RfBwWWasVwyZuco41j9YZ7RcnUYh2jbF4IaU7a82hNZMigpDCtyy4MxujoR=w576-h432-n-rw",
-  },
-  {
-    youtube: true,
-    videoId: "D2qbDHMP_-4",
-    opts: thumbnailOpt,
-    onReady: (e) => e.target.pauseVideo(),
-  },
-  {
-    name: "PIV-IT",
-    author: "autor",
-    link: "https://simmer.io/@bubbybumble/piv-it",
-    image:
-      "https://process.filestackapi.com/AnP4G3pixRCyMaUo5jr8bz/output=format:webp/resize=height:220/https://simmercdn.com/unity/2f5D0OoCwfSmxd0UWqRWb31mpj92/content/ca123aa3-17a8-e2fa-a4fb-6a7c4754d2ea/screens/2.png",
-  },
-  {
-    name: "Cleos Haunted House 1st draft",
-    author: "Will Lewis",
-    link: "https://poly.google.com/view/2rujmCTRgjV",
-    image:
-      "https://lh3.googleusercontent.com/HcOr2RfBwWWasVwyZuco41j9YZ7RcnUYh2jbF4IaU7a82hNZMigpDCtyy4MxujoR=w576-h432-n-rw",
-  },
-  {
-    name: "PIV-IT",
-    author: "autor",
-    link: "https://simmer.io/@bubbybumble/piv-it",
-    image:
-      "https://process.filestackapi.com/AnP4G3pixRCyMaUo5jr8bz/output=format:webp/resize=height:220/https://simmercdn.com/unity/2f5D0OoCwfSmxd0UWqRWb31mpj92/content/ca123aa3-17a8-e2fa-a4fb-6a7c4754d2ea/screens/2.png",
-  },
-  {
-    name: "Cleos Haunted House 1st draft",
-    author: "Will Lewis",
-    link: "https://poly.google.com/view/2rujmCTRgjV",
-    image:
-      "https://lh3.googleusercontent.com/HcOr2RfBwWWasVwyZuco41j9YZ7RcnUYh2jbF4IaU7a82hNZMigpDCtyy4MxujoR=w576-h432-n-rw",
-  },
-  {
-    youtube: true,
-    videoId: "5Lmef4NlXMI",
-    opts: thumbnailOpt,
-    onReady: (e) => e.target.pauseVideo(),
-  },
-  {
-    name: "PIV-IT",
-    author: "autor",
-    link: "https://simmer.io/@bubbybumble/piv-it",
-    image:
-      "https://process.filestackapi.com/AnP4G3pixRCyMaUo5jr8bz/output=format:webp/resize=height:220/https://simmercdn.com/unity/2f5D0OoCwfSmxd0UWqRWb31mpj92/content/ca123aa3-17a8-e2fa-a4fb-6a7c4754d2ea/screens/2.png",
-  },
-  {
-    name: "Cleos Haunted House 1st draft",
-    author: "Will Lewis",
-    link: "https://poly.google.com/view/2rujmCTRgjV",
-    image:
-      "https://lh3.googleusercontent.com/HcOr2RfBwWWasVwyZuco41j9YZ7RcnUYh2jbF4IaU7a82hNZMigpDCtyy4MxujoR=w576-h432-n-rw",
-  },
-  {
-    youtube: true,
-    videoId: "-zKE04TVxGk",
-    opts: thumbnailOpt,
-    onReady: (e) => e.target.pauseVideo(),
-  },
-];
+const CardsComponent = ({ cardsArray }) => {
+  const [modalTitle, setModalTitle] = useState(null);
+  const [modalAuthor, setModalAuthor] = useState(null);
+  const [frameLink, setFrameLink] = useState(null);
+  const [showModal, setShowModal] = useState(false);
+  const [projectLink, setProjectLink] = useState(null);
+  const handleClose = () => setShowModal(false);
+  const handleShow = (frameLink, projectLink, name, author) => {
+    setFrameLink(frameLink);
+    setModalTitle(name);
+    setModalAuthor(author);
+    setProjectLink(projectLink);
+    setShowModal(true);
+  };
 
-const CardsComponent = () => {
   return (
-    <Row
-      className="p-5 col-xl-10 col-sm-11 mx-auto"
-      style={{
-        backgroundColor: "rgba(255,255,255,0.3)",
-        overflow: "auto",
-        height: "80vh",
-        flexDirection: "row",
-      }}
-    >
-      {cardsArray.map((item) => (
-        <Col lg={4} md={6}>
-          {item.youtube ? (
-            <YouTube
-              className="col-12"
-              videoId={item.videoId}
-              opts={item.opts}
-              onReady={item.onReady}
-            />
-          ) : (
-            <Card
-              style={{
-                backgroundColor: "transparent",
-                borderColor: "transparent",
-              }}
-              className="cardContainer"
-            >
-              <a href={item.link} target="_blank" rel="noreferrer">
-                <Card.Img
-                  src={item.image}
-                  style={{
-                    backgroundColor: "gray",
-                    objectFit: "contain",
-                    borderRadius: "10px",
-                    borderColor: "transparent",
-                  }}
-                />
-                <Card.ImgOverlay>
-                  <div style={{ position: "absolute", bottom: "10px" }}>
-                    <h3>
-                      <b>{item.name}</b>
-                    </h3>
-                    <p
-                      style={{
-                        color: "rgba(255,255,255,0.7)",
-                        fontSize: "1.2rem",
-                      }}
-                    >
-                      {item.author}
-                    </p>
-                  </div>
-                </Card.ImgOverlay>
-              </a>
-            </Card>
-          )}
-        </Col>
-      ))}
-    </Row>
+    <>
+      <Modal
+        dialogClassName="modal-90w"
+        show={showModal}
+        onHide={handleClose}
+        aria-labelledby="example-custom-modal-styling-title"
+      >
+        <Modal.Header closeButton style={{ color: "white" }}>
+          <p>
+            <b>{modalTitle} </b> |{" "}
+            <span style={{ color: "lightgray" }}>{modalAuthor}</span>
+          </p>
+        </Modal.Header>
+        <Modal.Body
+          style={{ backgroundColor: "transparent", border: 0, outline: 0 }}
+        >
+          <Iframe
+            src={frameLink}
+            width="100%"
+            height="100%"
+            frameBorder={0}
+            className="mx-auto"
+          />
+        </Modal.Body>
+        <Modal.Footer>
+          <a
+            style={{ color: "white" }}
+            href={projectLink}
+            target="_blank"
+            rel="noreferrer"
+          >
+            Ver en sitio web <FontAwesomeIcon icon={faExternalLinkAlt} />
+          </a>
+        </Modal.Footer>
+      </Modal>
+      <Row
+        className="p-5 col-xl-10 col-sm-11 mx-auto"
+        style={{
+          backgroundColor: "rgba(255,255,255,0.3)",
+          overflow: "auto",
+          height: "70vh",
+          flexDirection: "row",
+          borderRadius: "10px",
+        }}
+      >
+        {cardsArray.map((item) => (
+          <Col className="mb-5" lg={4} md={6}>
+            {item.youtube ? (
+              <YouTube
+                className="col-12"
+                videoId={item.videoId}
+                opts={item.opts}
+                onReady={item.onReady}
+              />
+            ) : (
+              <Card
+                style={{
+                  backgroundColor: "transparent",
+                  borderColor: "transparent",
+                  height: "100%",
+                }}
+                className="cardContainer"
+              >
+                <div
+                  className="card-link"
+                  onClick={() =>
+                    handleShow(
+                      item.frameLink,
+                      item.link,
+                      item.name,
+                      item.author
+                    )
+                  }
+                >
+                  <Card.Img
+                    src={item.image}
+                    style={{
+                      backgroundColor: "gray",
+                      objectFit: "cover",
+                      borderRadius: "10px",
+                      borderColor: "transparent",
+                      height: "100%",
+                    }}
+                  />
+                  <Card.ImgOverlay>
+                    <div style={{ position: "absolute", bottom: "10px" }}>
+                      <h3>
+                        <b>{item.name}</b>
+                      </h3>
+                      <p
+                        style={{
+                          color: "rgba(255,255,255,0.7)",
+                          fontSize: "0.8rem",
+                        }}
+                      >
+                        {item.author}
+                      </p>
+                    </div>
+                  </Card.ImgOverlay>
+                </div>
+              </Card>
+            )}
+          </Col>
+        ))}
+      </Row>
+    </>
   );
 };
 

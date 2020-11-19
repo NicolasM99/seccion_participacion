@@ -4,19 +4,26 @@ body {
 }
 
 h1 {
-  color: rgb(220, 220, 220);
   font-weight: bold;
   font-size: 5em;
   font-family: "Raleway", sans-serif;
-  background-color: black;
   z-index: 1;
   padding-left: 40px;
   line-height: 120px;
   height: 120px;
+  filter: drop-shadow(5px 5px 10px rgba(0, 0, 0, 0.3));
+  -webkit-filter: drop-shadow(5px 5px 10px rgba(0, 0, 0, 0.3));
+}
+
+h3 {
+  font-size: 1.5rem;
 }
 
 @media only screen and (max-width: 993px) {
   h1 {
     font-size: 3.5rem;
+  }
+  h3 {
+    font-size: 1.2rem;
   }
 }

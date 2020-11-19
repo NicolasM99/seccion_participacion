@@ -1,11 +1,11 @@
 import React, { useEffect } from "react";
 import CardsComponent from "../components/CardsComponent";
 import VolverButton from "../components/VolverButton";
-import { studentsCardsArray } from "../components/cardsArray";
+import { graduatedCardsArray } from "../components/cardsArray";
 import { Spring } from "react-spring/renderprops";
-const EstudiantesPage = ({ setBgColor }) => {
+const EgresadosPage = ({ setBgColor }) => {
   useEffect(() => {
-    setBgColor("radial-gradient(#E4BE5B, #BB4300)");
+    setBgColor("radial-gradient(#6B47B8, #270A63)");
   });
   return (
     <Spring from={{ opacity: 0 }} to={{ opacity: 1 }}>
@@ -13,17 +13,17 @@ const EstudiantesPage = ({ setBgColor }) => {
         <div style={props}>
           <div className="pt-5" style={{ height: "100vh" }}>
             <h1
-              id="studentsTitle"
+              id="graduatedTitle"
               style={{ position: "fixed", paddingRight: "30px" }}
             >
-              Estudiantes
+              Egresados
             </h1>
             <div style={{ marginTop: "180px" }}>
-              <CardsComponent cardsArray={studentsCardsArray} />
+              <CardsComponent cardsArray={graduatedCardsArray} />
             </div>
             <VolverButton
               to="/participacion#categorias"
-              color="#FFBF83"
+              color="#cbb4ff"
               style={{ position: "fixed", right: 30, bottom: 30 }}
             />
           </div>
@@ -33,4 +33,4 @@ const EstudiantesPage = ({ setBgColor }) => {
   );
 };
 
-export default EstudiantesPage;
+export default EgresadosPage;

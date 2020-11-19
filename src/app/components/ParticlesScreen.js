@@ -2,7 +2,7 @@ import React from "react";
 import Particles from "react-particles-js";
 const ParticlesScreen = (props) => {
   return (
-    <div>
+    <div style={{ background: props.background }}>
       <div
         style={{
           textAlign: "center",
@@ -14,10 +14,11 @@ const ParticlesScreen = (props) => {
       <Particles
         style={{
           ...props.style,
-          // position: "absolute",
+          position: "fixed",
           left: 0,
           top: 0,
           bottom: 0,
+          background: props.background,
         }}
         width={props.width}
         height={props.height}
