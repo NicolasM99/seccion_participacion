@@ -3,7 +3,7 @@ import { Button } from "react-bootstrap";
 import { HashLink } from "react-router-hash-link";
 
 const VolverButton = ({ to, style, color }) => (
-  <HashLink style={style} to={to}>
+  <HashLink style={style} to={"/participacion#categorias"}>
     <Button
       style={{
         borderRadius: 50,

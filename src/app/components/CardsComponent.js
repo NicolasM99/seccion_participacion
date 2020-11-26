@@ -9,7 +9,7 @@ import { faExternalLinkAlt } from "@fortawesome/free-solid-svg-icons";
 
 const thumbnailOpt = {};
 
-const CardsComponent = ({ cardsArray }) => {
+const CardsComponent = ({ cardsArray, frame }) => {
   const [modalTitle, setModalTitle] = useState(null);
   const [modalAuthor, setModalAuthor] = useState(null);
   const [frameLink, setFrameLink] = useState(null);
@@ -78,6 +78,7 @@ const CardsComponent = ({ cardsArray }) => {
                 videoId={item.videoId}
                 opts={item.opts}
                 onReady={item.onReady}
+                style={{ height: "200px" }}
               />
             ) : (
               <Card
@@ -100,17 +101,27 @@ const CardsComponent = ({ cardsArray }) => {
                   }
                 >
                   <Card.Img
-                    src={item.image}
+                    src={frame}
                     style={{
-                      backgroundColor: "gray",
-                      objectFit: "cover",
+                      // backgroundColor: "gray",
+                      objectPosition: "center",
                       borderRadius: "10px",
                       borderColor: "transparent",
                       height: "100%",
+                      width: "100%",
+                      backgroundImage: `url(${item.image})`,
+                      backgroundSize: "cover",
+                      backgroundRepeat: "no-repeat",
+                      filter: "brightness(0.8)",
                     }}
                   />
                   <Card.ImgOverlay>
-                    <div style={{ position: "absolute", bottom: "10px" }}>
+                    <div
+                      style={{
+                        position: "absolute",
+                        bottom: "10px",
+                      }}
+                    >
                       <h3>
                         <b>{item.name}</b>
                       </h3>

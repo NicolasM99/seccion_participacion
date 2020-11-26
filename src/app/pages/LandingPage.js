@@ -6,8 +6,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowDown, faChevronDown } from "@fortawesome/free-solid-svg-icons";
 import { Spring } from "react-spring/renderprops";
 import CategoriaCard from "../components/CategoriaCard";
-const LandingPage = ({ setBgColor }) => {
+const LandingPage = ({ setBgColor, setNavColor }) => {
   useEffect(() => {
+    setNavColor("#241E3F");
     setBgColor("radial-gradient(#001033, #000)");
   });
   return (
@@ -20,6 +21,7 @@ const LandingPage = ({ setBgColor }) => {
           >
             <h1
               id="landingPageTitle"
+              className="participacion_titles"
               style={{ position: "fixed", paddingRight: "30px" }}
             >
               Participación

@@ -4,7 +4,7 @@ body {
 }
 
 h1 {
-  font-weight: bold;
+  font-weight: bold !important;
   font-size: 5em;
   font-family: "Raleway", sans-serif;
   z-index: 1;
@@ -14,14 +14,13 @@ h1 {
   filter: drop-shadow(5px 5px 10px rgba(0, 0, 0, 0.3));
   -webkit-filter: drop-shadow(5px 5px 10px rgba(0, 0, 0, 0.3));
 }
-
 h3 {
   font-size: 1.5rem;
 }
 
 @media only screen and (max-width: 993px) {
   h1 {
-    font-size: 3.5rem;
+    font-size: 3rem;
   }
   h3 {
     font-size: 1.2rem;

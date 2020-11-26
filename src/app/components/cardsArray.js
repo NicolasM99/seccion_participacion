@@ -1,7 +1,10 @@
 export const studentsCardsArray = [
   {
+    opts: {
+      height: 200,
+    },
     youtube: true,
-    videoId: "-zKE04TVxGk",
+    videoId: "Y67EcjgLyek",
     onReady: (e) => e.target.pauseVideo(),
   },
   {
@@ -56,11 +59,14 @@ export const studentsCardsArray = [
   },
 ];
 export const graduatedCardsArray = [
-  {
-    youtube: true,
-    videoId: "-zKE04TVxGk",
-    onReady: (e) => e.target.pauseVideo(),
-  },
+  // {
+  //   opts: {
+  //     height: 200,
+  //   },
+  //   youtube: true,
+  //   videoId: "Y67EcjgLyek",
+  //   onReady: (e) => e.target.pauseVideo(),
+  // },
   {
     name: "Cálculo de torque",
     author: "Luis Enrique Melo Barrera",
@@ -113,11 +119,14 @@ export const graduatedCardsArray = [
   },
 ];
 export const teachersCardsArray = [
-  {
-    youtube: true,
-    videoId: "-zKE04TVxGk",
-    onReady: (e) => e.target.pauseVideo(),
-  },
+  // {
+  //   opts: {
+  //     height: 200,
+  //   },
+  //   youtube: true,
+  //   videoId: "Y67EcjgLyek",
+  //   onReady: (e) => e.target.pauseVideo(),
+  // },
   {
     name: "Cálculo de torque",
     author: "Luis Enrique Melo Barrera",
